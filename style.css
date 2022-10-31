@@ -1,0 +1,46 @@
+body {
+    background-color: #000;
+    height: 50vh;
+    display: grid;
+    place-items: center;
+}
+.circle {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    background-color: #ff9540;
+    position: relative;
+    box-shadow: 0 0 10px #ff9500,
+                0 0 40px #ff4500,
+                0 0 80px #ff4500;
+}
+.circle::after {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #000;
+    animation : eclipse 3s linear
+    infinite alternate;
+    bottom: 49px;
+    left: 49px;
+}
+@keyframes eclipse {
+ 0% {
+     transform: translate(-50px,50px);
+     scale(0.9);
+ }
+    50%,70%{
+        transform: translate(-50px,50px);
+         scale(1.02);
+        box-shadow: 0 0 10px #f9f3f2,
+                    0 0 80px 8px #c79388
+    }
+    100% {
+        transform: translate(-50px,50px);
+        scale(0.9);
+        box-shadow: none;
+    }
+}
+
